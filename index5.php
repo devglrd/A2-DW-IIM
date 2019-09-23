@@ -6,7 +6,6 @@ require __DIR__ . '/vendor/autoload.php';
 $pdo = new PDO('mysql:host=127.0.0.1;dbname=PHP', "root", ""); // CONNEXION TO DB
 
 //UNE ERRREUR SAFFICHE ? POURQUOI ? COMMENT L"ENLEVER
-
 if (!empty($_POST)) {
     $name = $_POST["name"];
     echo "Je recupere les données de mon formulaire";
@@ -26,11 +25,12 @@ if (!empty($_POST)) {
     <input type="text" name="name">
     <button type="submit">Envoyer</button>
 </form>
-
-<?php foreach($allUsers as $key=>$value): ?>
-    <tr>
-        <td>Id : <?php echo $value->id; ?></td>
-        <td>Name : <?php echo $value->name; ?></td>
-        <br>
-    </tr>
-<?php endforeach; ?>
+<?php if (isset($allUsers)): ?>
+    <?php foreach ($allUsers as $key => $value): ?>
+        <tr>
+            <td>Id : <?php echo $value->id; ?></td>
+            <td>Name : <?php echo $value->name; ?></td>
+            <br>
+        </tr>
+    <?php endforeach; ?>
+<?php endif; ?>

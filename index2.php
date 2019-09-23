@@ -8,14 +8,13 @@ $pdo = new PDO('mysql:host=127.0.0.1;dbname=PHP', "root", ""); // CONNEXION TO D
 // JE VOUDRAIS PASSER DANS MON IF MAIS CELA NE MARCHE PAS
 if (!empty($_POST)) {
     echo "Je recupere les données de mon formulaire";
-    var_dump($_POST);
-    die();
+    dd($_POST);
 }
 
 
 ?>
 
-<form method="GET">
+<form method="POST">
     <label for="">Mon nom</label>
     <input type="text" name="name">
     <button type="submit">Envoyer</button>
